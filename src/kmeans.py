@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-ola
+Implementação do k-means
 """
 from tkinter import *
 from random import *
