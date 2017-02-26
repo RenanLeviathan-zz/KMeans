@@ -34,7 +34,16 @@ dists=[]
 for c in coords:
     ds=sorted(kmm.dist_eucl(c,points))
     dists.append(ds)
-    
 
+medias = []
+for d in dists:
+    medias.append(kmm.media(d))
+
+i=0
+for c in coords:
+    for p in points:
+        if kmm.dist_euc1(c,p) <= medias[i]:
+            cnv.create_line(c[0],c[1],p[0],p[1])
+    i+=1
 mainloop()
     

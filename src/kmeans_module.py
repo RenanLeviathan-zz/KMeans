@@ -16,6 +16,14 @@ def gerar_centroides(qtd,length):
         qtd-=1
     return coords
     
+def media(lista):
+    s=0
+    m=0
+    for l in lista:
+        s+=l
+    m=s/len(lista)
+    return m
+
 def dist_eucl(c,ps):
     dists=[]
     for p in ps:
@@ -23,3 +31,5 @@ def dist_eucl(c,ps):
         dists.append(d)
     return dists
 
+def dist_euc1(c,p):
+    return mt.sqrt(mt.pow(c[0]-p[0],2)+mt.pow(c[1]-p[1],2))
