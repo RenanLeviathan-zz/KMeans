@@ -43,6 +43,7 @@ i=0
 for c in coords:
     for p in points:
         if kmm.dist_euc1(c,p) <= medias[i]:
+            cnv.create_oval(p[0]+esp,p[1]+esp,p[0]+5+esp,p[1]+5+esp,fill=cores[i])
             cnv.create_line(c[0],c[1],p[0],p[1])
     i+=1
 mainloop()
