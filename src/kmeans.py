@@ -18,7 +18,12 @@ cnv.create_line(2,450,2,2)
 #geraçao de centroides
 coords = kmm.gerar_centroides(3,4)
 points = []
-rnd.seed(7)
+def set_centroids():
+    rnd.seed(7)
+    for i in coords:
+        idx = rnd.randint(0,len(cores))
+        cnv.create_rectangle(i[0],i[1],i[0]+10,i[1]+10,fill=cores[idx])
+set_centroids()
 for i in coords:
     idx = rnd.randint(0,len(cores))
     cnv.create_rectangle(i[0],i[1],i[0]+10,i[1]+10,fill=cores[idx])
@@ -46,5 +51,7 @@ for c in coords:
             cnv.create_oval(p[0]+esp,p[1]+esp,p[0]+5+esp,p[1]+5+esp,fill=cores[i])
             cnv.create_line(c[0],c[1],p[0],p[1])
     i+=1
+b = Button(master,text="Reposicionar centroides",command=set_centroids)
+b.pack()
 mainloop()
     
