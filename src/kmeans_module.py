@@ -16,6 +16,9 @@ def gerar_centroides(qtd,length):
         qtd-=1
     return coords
     
+def dist_euc(c,p):
+    return mt.sqrt(mt.pow(c[0]-p[0],2)+mt.pow(c[1]-p[1],2))
+    
 def dist_eucl(c,ps):
     dists=[]
     for p in ps:
@@ -23,3 +26,4 @@ def dist_eucl(c,ps):
         dists.append(d)
     return dists
 
+#def recalcular(qtd)
