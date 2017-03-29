@@ -20,9 +20,10 @@ cores=['Red','Blue','Yellow','Green','Gray','#50f0da']
 cnv.create_line(2,450,650,450)
 cnv.create_line(2,450,2,2)
 #geraçao de centroides
-coords = kmm.gerar_centroides(3,6)
+num_cent=3
+coords = kmm.gerar_centroides(num_cent,6)
 points = []
-#rnd.seed(7)
+rnd.seed(7)
 for i in coords:
     idx = rnd.randint(0,len(cores))
     cnv.create_rectangle(i[0],i[1],i[0]+10,i[1]+10,fill=cores[idx])

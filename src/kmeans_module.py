@@ -26,4 +26,4 @@ def dist_eucl(c,ps):
         dists.append(d)
     return dists
 
-#def recalcular(qtd)
+def recalcular(qtd)
