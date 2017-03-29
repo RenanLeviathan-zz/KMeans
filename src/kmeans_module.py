@@ -26,4 +26,14 @@ def dist_eucl(c,ps):
         dists.append(d)
     return dists
 
-def recalcular(qtd)
+def recalcular(pts):
+    sx=0
+    sy=0
+    msx=0
+    msy=0
+    for p in pts:
+        sx+=p[0]
+        sy+=p[1]
+    msx=sx/len(pts)
+    msy=sy/len(pts)
+    return [msx,msy]
