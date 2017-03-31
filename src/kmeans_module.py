@@ -34,6 +34,7 @@ def recalcular(pts):
     for p in pts:
         sx+=p[0]
         sy+=p[1]
-    msx=sx/len(pts)
-    msy=sy/len(pts)
+    if len(pts)>0:
+        msx=sx/len(pts)
+        msy=sy/len(pts)
     return [msx,msy]

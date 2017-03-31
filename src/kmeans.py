@@ -10,10 +10,6 @@ arq=open("../res/iris.2D.arff","r")
 master = Tk()
 master.title("Plotter em python")
 cnv=Canvas(master,width=700,height=500)
-btn=Button(master)
-btn['text']='Recalcular'
-btn['command']=replot
-btn.pack()
 cnv.pack()
 esp=0
 cores=['Red','Blue','Yellow','Green','Gray','#50f0da']
@@ -43,23 +39,31 @@ for i in range(num_cent):
 
 def replot():
     i=0
+    coords=[]
     for i in range(num_cent):
         p=kmm.recalcular(groups[i])
-        print(p)
+        coords.append(p)
         cnv.create_rectangle(p[0],p[1],p[0]+10,p[1]+10,fill=cr[i])
         i+=1
-for p in points:
-    cd=None
-    menor=1000
-    idx=0
-    for c in enumerate(coords):
-        d=kmm.dist_euc(p,c[1])
-        if d < menor:
-            menor=d
-            cd=c[1]
-            idx=c[0]
-    groups[idx].append(p)
-    cnv.create_line(p[0],p[1],cd[0],cd[1])
-print(groups)
+    group(points)
+    
+btn=Button(master)
+btn['text']='Recalcular'
+btn['command']=replot
+btn.pack()
+def group(points):       
+    for p in points:
+        cd=None
+        menor=1000
+        idx=0
+        for c in enumerate(coords):
+            d=kmm.dist_euc(p,c[1])
+            if d < menor:
+                menor=d
+                cd=c[1]
+                idx=c[0]
+        groups[idx].append(p)
+        cnv.create_line(p[0],p[1],cd[0],cd[1])
+group(points)
 mainloop()
     
